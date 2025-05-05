@@ -4,9 +4,14 @@ sources:
     - name: jaffle_shop
       description: This is a replica of the Postgres database used by our app
       database: dbt-tutorial
+      freshness:
+        warn_after: {count: 6, period: hour}
+        error_after: {count: 24, period: hour}
+      loaded_at_field: _etl_loaded_at
       schema: jaffle_shop
       tables:
           - name: customers
             description: One record per customer
+            freshness: null
           - name: orders
             description: One record per order. Includes cancelled and deleted orders
