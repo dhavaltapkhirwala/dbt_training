@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+    - name: jaffle_shop
+      description: This is a replica of the Postgres database used by our app
+      database: dbt-tutorial
+      freshness:
+        warn_after: {count: 6, period: hour}
+        error_after: {count: 24, period: hour}
+      loaded_at_field: _etl_loaded_at
+      schema: jaffle_shop
+      tables:
+          - name: customers
+            description: Raw customer data
+            freshness: null
+            columns:
+              - name: id
+                description: primary key for raw customers data
+                tests:
+                  - unique
+                  - not_null
+          - name: orders
+            description: Raw orders data. Includes cancelled and deleted orders
+            columns:
+              - name: id
+                description: primary key for raw orders data
+                tests: 
+                  - unique
+                  - not_null
