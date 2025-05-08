@@ -1,0 +1,7 @@
+{{
+    union_relations_by_prefix(
+        database='dbt-tutorial',
+        schema='jaffle_shop',
+        prefix-'order_'
+    )
+}}
