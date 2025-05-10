@@ -27,3 +27,4 @@ sources:
                 tests: 
                   - unique
                   - not_null
+          - name: products
