@@ -10,6 +10,12 @@ orders as (
 
 ),
 
+employees as (
+
+    select * from {{ ref('employees') }}
+
+),
+
 customer_orders as (
 
     select
@@ -29,6 +35,7 @@ final as (
 
     select
         customers.customer_id,
+        employees.employee_id is not null as is_employee,
         customers.first_name,
         customers.last_name,
         customer_orders.first_order_date,
@@ -38,6 +45,7 @@ final as (
     from customers
 
     left join customer_orders using (customer_id)
+    left join employees using (customer_id)
 
 )
 
