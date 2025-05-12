@@ -39,8 +39,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   jaffle_shop:
+    #all modesl should have unique and not null tests
+    
     # Applies to all files under models/marts/
     marts:
       materialized: table
+      finance:
+        +required_tests: {"- unique.*|not_null.*|relationship": 1}
+      marketing:
+        +required_tests: {"- unique.*|not_null.*|relationship": 1}
     staging:
       materialized: table
+      +required_tests: {"- unique.*|not_null": 1}
+
