@@ -5,3 +5,6 @@ select
     status
 
 from {{ source('jaffle_shop', 'orders') }}
+
+/*do not execute the following
+{{ limit_data_in_dev('order_date') }}*/
