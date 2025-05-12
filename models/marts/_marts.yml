@@ -23,9 +23,15 @@ models:
         tests:
           - unique:
               config:
-                  severity: warn
-                  error_if: ">100"
-                  warn_if: ">30"
+#                 severity: warn
+                  error_if: ">5"
+                  warn_if: ">1"
+#                 where: "order_date > '2018-03-01'"
+                  store_failures: true
+#                 limit: 5
+                  schema: dbt_test_failures
+#limit, will fail as soon as the limit is reached, must be used without other options i.e.
+#severity, error_if, warn_if, where etc.
 
               
 
