@@ -1,3 +1,4 @@
+{#
 {{
     union_relations_by_prefix(
         database='dbt-tutorial',
@@ -5,3 +6,4 @@
         prefix-'order_'
     )
 }}
+#}
