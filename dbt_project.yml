@@ -52,3 +52,8 @@ models:
       materialized: table
       +required_tests: {"- unique.*|not_null": 1}
 
+tests:
+  jaffle_shop:
+    +severity: warn
+    +store_failures: true
+

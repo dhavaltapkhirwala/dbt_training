@@ -1,3 +1,4 @@
+{#
 {% macro template_example(args) %}
     {% set query %}
         select true as bool
@@ -14,3 +15,4 @@
     {% endif %}
 
 {% endmacro %}
+#}

@@ -1,1 +1,5 @@
-{{ template_example() }}
+{{config(
+    enabled=false
+)}}
+
+{#{{ template_example() }}#}

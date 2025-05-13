@@ -13,3 +13,23 @@ sources:
       tables:
           - name: payment
             description: Payment details for orders
+            columns:
+              - name: id 
+                tests:
+                  - unique
+              - name: orderid
+                tests:
+                  - unique:
+                      config:
+                        error_if: ">100"
+                        warn_if: ">10"
+                        where: "status = 'success'"
+              - name: status
+                tests:
+                  - accepted_values:
+                      values: ["success"] 
+                      config:
+                        limit: 10
+
+
+
