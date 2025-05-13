@@ -1,5 +1,6 @@
 with orders as (
     select * from {{ ref('stg_orders') }}
+    --adding a comment to test ci
 ),
 
 payments as (
